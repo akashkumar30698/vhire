@@ -15,17 +15,20 @@ const useMeetingActions = () => {
 
     try {
 
-      if(!process.env.NEXT_PUBLIC_STREAM_API_KEY){
+      if (!process.env.NEXT_PUBLIC_STREAM_API_KEY) {
         throw new Error("No Stream API Key found")
-       }
+      }
+
+  
+      const streamUser = {
+        id: user?.id || "", //  (fallback to empty string if undefined)
+        name: user?.firstName && user?.lastName ? `${user.firstName} ${user.lastName}` : user?.id, 
+        image: user?.imageUrl || "", //(fallback to empty string if undefined)
+      };
 
       const client = new StreamVideoClient({
         apiKey: process.env.NEXT_PUBLIC_STREAM_API_KEY,
-        user: {
-          id: user?.id,
-          name: user?.firstName || "" + " " + user?.lastName || "" || user?.id,
-          image: user?.imageUrl,
-        },
+        user: streamUser,
         tokenProvider: streamTokenProvider,
       });
 
@@ -50,11 +53,11 @@ const useMeetingActions = () => {
   };
 
   const joinMeeting = (callId: string) => {
-  //  console.log("client", client)
- //   if (!client)// return toast.error("Failed to join meeting. Please try again.");
-      if (callId) {
-        router.push(`/meeting/${callId}`)
-      }
+    //  console.log("client", client)
+    //   if (!client)// return toast.error("Failed to join meeting. Please try again.");
+    if (callId) {
+      router.push(`/meeting/${callId}`)
+    }
   };
 
   return { createInstantMeeting, joinMeeting };
