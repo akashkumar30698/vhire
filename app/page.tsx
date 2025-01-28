@@ -4,7 +4,7 @@ import {
   SignedIn,
   SignedOut,
 } from '@clerk/nextjs'
-import DashboardHome from "./(root)/(home)/page";
+import DashboardHome from "./(root)/main/page";
 import Navbar from './components/Navbar';
 import HeroSection from './HeroSection';
 import Footer from './Footer';
