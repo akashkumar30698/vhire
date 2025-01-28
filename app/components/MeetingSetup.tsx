@@ -11,7 +11,6 @@ function MeetingSetup({ onSetupComplete }: { onSetupComplete: () => void }) {
 
   const call = useCall();
 
-  if (!call) return null;
 
   useEffect(() => {
     if (call?.camera) {
@@ -35,11 +34,16 @@ function MeetingSetup({ onSetupComplete }: { onSetupComplete: () => void }) {
     }
   }, [isMicDisabled, call?.microphone]);
 
+  if (!call) return null;
+
+
 
   const handleJoin = async () => {
     await call.join();
     onSetupComplete();
   };
+
+
 
   return (
     <div className="min-h-screen flex items-center justify-center p-6 bg-background/95">
