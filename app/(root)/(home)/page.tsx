@@ -15,7 +15,7 @@ import LoaderUI from "@/app/components/LoaderUI";
 export default function DashboardHome() {
   const router = useRouter();
 
-  const { isInterviewer, isCandidate, isLoading } = useUserRole();
+  const { isInterviewer,  isLoading } = useUserRole();
   const interviews = useQuery(api.interviews.getMyInterviews);
   const [showModal, setShowModal] = useState(false);
   const [modalType, setModalType] = useState<"start" | "join">();

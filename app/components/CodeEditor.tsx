@@ -6,6 +6,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from ".
 import { Card, CardContent, CardHeader, CardTitle } from "../../components/ui/card";
 import { AlertCircleIcon, BookIcon, LightbulbIcon } from "lucide-react";
 import Editor from "@monaco-editor/react";
+import Image from "next/image";
 
 function CodeEditor() {
   const [selectedQuestion, setSelectedQuestion] = useState(CODING_QUESTIONS[0]);
@@ -61,9 +62,11 @@ function CodeEditor() {
                       {/* SELECT VALUE */}
                       <SelectValue>
                         <div className="flex items-center gap-2">
-                          <img
+                          <Image
                             src={`/${language}.png`}
                             alt={language}
+                            height={35}
+                            width={35}
                             className="w-5 h-5 object-contain"
                           />
                           {LANGUAGES.find((l) => l.id === language)?.name}
@@ -75,9 +78,11 @@ function CodeEditor() {
                       {LANGUAGES.map((lang) => (
                         <SelectItem key={lang.id} value={lang.id}>
                           <div className="flex items-center gap-2">
-                            <img
+                            <Image
                               src={`/${lang.id}.png`}
                               alt={lang.name}
+                              width={35}
+                              height={35}
                               className="w-5 h-5 object-contain"
                             />
                             {lang.name}
@@ -169,7 +174,7 @@ function CodeEditor() {
             language={language}
             theme="vs-dark"
             value={code}
-            onChange={(value: any) => setCode(value || "")}
+            onChange={(value) => setCode(value || "")}
             options={{
               minimap: { enabled: false },
               fontSize: 18,
