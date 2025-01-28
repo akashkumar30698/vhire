@@ -13,23 +13,25 @@ function MeetingSetup({ onSetupComplete }: { onSetupComplete: () => void }) {
 
   if (!call) return null;
 
-
   useEffect(() => {
-    if (isCameraDisabled) {
-      call.camera.disable();
-    } else {
-      call.camera.enable();
+    if (call?.camera) {
+      if (isCameraDisabled) {
+        call.camera.disable();
+      } else {
+        call.camera.enable();
+      }
     }
-  }, [isCameraDisabled, call.camera]);
+  }, [isCameraDisabled, call?.camera]);
+
 
 
   useEffect(() => {
-    if (!call?.microphone) return; // Safeguard if microphone is undefined.
-
-    if (isMicDisabled) {
-      call.microphone.disable();
-    } else {
-      call.microphone.enable();
+    if (call?.microphone) {
+      if (isMicDisabled) {
+        call.microphone.disable();
+      } else {
+        call.microphone.enable();
+      }
     }
   }, [isMicDisabled, call?.microphone]);
 
