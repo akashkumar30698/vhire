@@ -19,16 +19,15 @@ import { RoleSelectionDialog } from "@/app/components/RoleSelectionDialog";
 export default function DashboardHome() {
   const router = useRouter();
 
-  const { isInterviewer, isCandidate, isLoading } = useUserRole();
+  const { isInterviewer, isLoading } = useUserRole();
   const interviews = useQuery(api.interviews.getMyInterviews);
   const [showModal, setShowModal] = useState(false);
   const [modalType, setModalType] = useState<"start" | "join">();
   const { user } = useUser()
   const { isOpen, setIsOpen } = useContextApi()
 
-  if (!user) return null
 
-  const getUsers = useQuery(api.users.getUserByClerkId, { clerkId: user?.id })
+  const getUsers = useQuery(api.users.getUserByClerkId, { clerkId: user?.id || "no_user" })
 
   useEffect(() => {
     // If user doesn't have a role, show the Role Selection dialog
@@ -38,6 +37,10 @@ export default function DashboardHome() {
       setIsOpen(false);
     }
   }, [getUsers]);
+
+
+  if (!user) return null
+
   
 
 

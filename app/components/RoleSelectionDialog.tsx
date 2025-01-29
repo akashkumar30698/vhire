@@ -19,9 +19,6 @@ import { useContextApi } from "../context/getContext"
 
 
 
-interface RoleSelectionDialogProps {
-    open: boolean
-}
 
 export function RoleSelectionDialog() {
     const [selectedRole, setSelectedRole] = useState<"interviewer" | "candidate" | null>(null)
