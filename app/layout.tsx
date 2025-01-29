@@ -4,6 +4,7 @@ import "./globals.css";
 import ConvexClerkProvider from "./components/providers/ConvexClerkProvider";
 import { ThemeProvider } from "./components/providers/ThemeProvider";
 import { Toaster } from "react-hot-toast";
+import { UserProvider } from "./context/getContext";
 
 
 
@@ -21,17 +22,21 @@ export default function RootLayout({
     <ConvexClerkProvider>
       <html lang="en" suppressHydrationWarning>
         <body className={` antialiased`}>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-          >
-                <main className="">{children}</main>
+          <UserProvider>
+            <ThemeProvider
+              attribute="class"
+              defaultTheme="system"
+              enableSystem
+              disableTransitionOnChange
+            >
+              <main className="">{children}</main>
 
               <div>
               </div>
-          </ThemeProvider>
+            </ThemeProvider>
+
+          </UserProvider>
+
           <Toaster />
         </body>
       </html>

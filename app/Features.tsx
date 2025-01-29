@@ -30,9 +30,9 @@ export default function Features() {
          <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
           <div className="lg:pt-4 lg:pr-8">
             <div className="lg:max-w-lg">
-              <h2 className="text-base/7 font-semibold text-indigo-600">Deploy faster</h2>
+              <h2 className="text-base/7 font-semibold text-indigo-600"></h2>
               <p className="mt-2 text-4xl font-semibold tracking-tight text-pretty text-white-900 sm:text-5xl">
-              Built for Better Interviews
+                Built for Better Interviews
               </p>
               <p className="mt-6 text-lg/8 text-white-600">
                 Connect with candidates effortlessly, assess skills with live coding, and streamline your hiring process—all in one platform.

@@ -1,6 +1,5 @@
 "use client"
 
-
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -9,9 +8,7 @@ import HeroCard from './HeroCard';
 
 const HeroSection = () => {
     return (
-
         <>
-
             <header className="py-4 bg-black sm:py-6" x-data="{expanded: false}">
                 <div className="px-4 sm:px-6 lg:px-8">
                     <div className="flex items-center justify-between">
@@ -22,10 +19,7 @@ const HeroSection = () => {
                         </div>
 
                         <div className="flex md:hidden">
-
                         </div>
-
-
 
                         <div className="relative  md:justify-center md:items-center md:inline-flex group">
                             <div className="absolute transition-all duration-200 rounded-full -inset-px bg-gradient-to-r from-cyan-500 to-purple-500 group-hover:shadow-lg group-hover:shadow-cyan-500/50"></div>
@@ -36,15 +30,10 @@ const HeroSection = () => {
                 </div>
             </header>
 
-
             <Hero2 />
             <HeroCard />
 
-
         </>
-
-
-
     )
 }
 export default HeroSection;

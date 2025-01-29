@@ -25,7 +25,7 @@ export default function Footer() {
 
                     <div className="text-center">
                         <Link
-                            href="/sign-in"
+                            href="/sign-up"
                             className="inline-flex items-center justify-center gap-x-2 bg-gradient-to-tl from-blue-600 to-violet-600 shadow-lg hover:shadow-blue-700/50 border border-transparent text-white text-sm font-medium rounded-full focus:outline-none focus:ring-2 focus:ring-blue-700 py-3 px-6">
                             Get started
                             <svg className="h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

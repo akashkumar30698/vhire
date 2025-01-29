@@ -26,7 +26,7 @@ export default function HeroCard() {
 
               </div>
 
-              <Link className="group inline-flex flex-wrap items-center bg-white/10 hover:bg-white/10 focus:outline-none focus:bg-white/10 border border-white/10 p-1 ps-4 rounded-full shadow-md" href="/sign-in">
+              <Link className="group inline-flex flex-wrap items-center bg-white/10 hover:bg-white/10 focus:outline-none focus:bg-white/10 border border-white/10 p-1 ps-4 rounded-full shadow-md" href="/sign-up">
                         <p className="me-2 text-white text-sm">
                             Get Started
                         </p>

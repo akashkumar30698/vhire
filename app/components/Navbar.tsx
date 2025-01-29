@@ -7,14 +7,8 @@ import DasboardBtn from "./DashboardBtn";
 import Image from "next/image"
 
 
-
 function Navbar() {
 
-  
-
-
-
-  
   return (
     <nav className="border-b">
       <div className="flex h-16 items-center px-4 container mx-auto">
@@ -41,3 +35,4 @@ function Navbar() {
   );
 }
 export default Navbar;
+

@@ -7,6 +7,7 @@ export const syncUser = mutation({
     email: v.string(),
     clerkId: v.string(),
     image: v.optional(v.string()),
+    role: v.optional(v.union(v.literal("interviewer"), v.literal("candidate"), v.literal("null"))),
   },
   handler: async (ctx, args) => {
     const existingUser = await ctx.db
@@ -14,11 +15,25 @@ export const syncUser = mutation({
       .filter((q) => q.eq(q.field("clerkId"), args.clerkId))
       .first();
 
-    if (existingUser) return;
+    if (existingUser){
+
+      // If the user exists, update their information, including the role if provided
+      return await ctx.db.patch(existingUser._id, {
+        name: args.name,
+        email: args.email,
+        image: args.image,
+        role: args.role,
+        clerkId: args.clerkId
+      })
+
+    } 
+
+     // Ensure role is set, default to 'candidate' if not provided
+     const role = args.role || "null";  // Default to 'null' if role is not provided
 
     return await ctx.db.insert("users", {
       ...args,
-      role: "candidate",
+      role: role,
     });
   },
 });
